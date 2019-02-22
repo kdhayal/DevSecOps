@@ -1,0 +1,10 @@
+@slow
+Feature: Check for cross site scripting (XSS) vulnerability using arachi against gruyere
+Background:
+    Given "arachi" is installed
+Scenario: Do a full xss
+    When I launch am "arachi" attack with:
+    """
+    arachi --checks=xss --scope-page limit=1 http://172.17.0.2:8080/login
+    """
+    Then the output should contain "0 issue were detected"
