@@ -11,4 +11,3 @@ Scenario: Do a full xss
   arachni --checks=xss --output-verbose --scope-page-limit=1 http://<hostname>:8008/login
   """
   Then the output should contain "0 issues were detected"
-  
